@@ -27,9 +27,12 @@ public class TestApp {
         
         Field nome = clazz.getDeclaredField("nome");
         Field email = clazz.getDeclaredField("email");
+        Field cpf = clazz.getDeclaredField("cpf");
         
         Assertions.assertTrue(Modifier.isPrivate(nome.getModifiers()));
         Assertions.assertTrue(Modifier.isPrivate(email.getModifiers()));
+        Assertions.assertTrue(Modifier.isPrivate(cpf.getModifiers()));
+        
         
     }
 
@@ -48,9 +51,13 @@ public class TestApp {
 
         Field titulo = clazz.getDeclaredField("titulo");
         Field anoPublicacao = clazz.getDeclaredField("anoPublicacao");
-
+        Field editora = clazz.getDeclaredField("editora");
+        Field numeroPaginas = clazz.getDeclaredField("numeroPaginas");
+        
         Assertions.assertTrue(Modifier.isPrivate(titulo.getModifiers()));
         Assertions.assertTrue(Modifier.isPrivate(anoPublicacao.getModifiers()));
+        Assertions.assertTrue(Modifier.isPrivate(editora.getModifiers()));
+        Assertions.assertTrue(Modifier.isPrivate(numeroPaginas.getModifiers()));
         
     }
 
@@ -66,14 +73,13 @@ public class TestApp {
 
         Class<Livro> clazz = Livro.class;
 
-        Field numeroPaginas = clazz.getDeclaredField("numeroPaginas");
-        Field editora = clazz.getDeclaredField("editora");
+        
         Field numeroCapitulos = clazz.getDeclaredField("numeroCapitulos");
+        Field autor = clazz.getDeclaredField("autor");
 
         Assertions.assertTrue(Modifier.isPrivate(numeroCapitulos.getModifiers()));
-        Assertions.assertTrue(Modifier.isPrivate(numeroPaginas.getModifiers()));
-        Assertions.assertTrue(Modifier.isPrivate(editora.getModifiers()));
-
+        Assertions.assertTrue(Modifier.isPrivate(autor.getModifiers()));
+    
     }
 
     @Test
@@ -87,7 +93,8 @@ public class TestApp {
         assertEquals(2001,livro.getAnoPublicacao());
         assertEquals(1000, livro.getNumeroPaginas());
         assertEquals("Editora", livro.getEditora());
-
+        assertEquals(10, livro.getNumeroCapitulos());
+        
     }
 
     @Test
@@ -103,13 +110,9 @@ public class TestApp {
         Class<Revista> clazz = Revista.class;
 
         Field numero = clazz.getDeclaredField("numero");
-        Field editora = clazz.getDeclaredField("editora");
-        Field numeroPaginas = clazz.getDeclaredField("numeroPaginas");
-
+        
         Assertions.assertTrue(Modifier.isPrivate(numero.getModifiers()));
-        Assertions.assertTrue(Modifier.isPrivate(numeroPaginas.getModifiers()));
-        Assertions.assertTrue(Modifier.isPrivate(editora.getModifiers()));
-
+        
     }
 
     @Test
